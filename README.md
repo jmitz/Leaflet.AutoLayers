@@ -4,9 +4,9 @@ A dynamic leaflet layers control that pulls from multiple mapservers and manages
 
 ## Getting Started
 
-See [this demo page](http://jmitz.github.io/Leaflet.AutoLayers/example/index.html) for a full example or [this barebones demonstration](http://jmitz.github.io/Leaflet.AutoLayers/example/simple.html) of the simpliest way to configure the plugin.
+See [this demo page](https://jmitz.github.io/Leaflet.AutoLayers/example/index.html) for a full example or [this barebones demonstration](https://jmitz.github.io/Leaflet.AutoLayers/example/simple.html) of the simpliest way to configure the plugin.
 
-New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn them off/on and declare basemaps, automatically pulls layers. [See this demo for an example](http://jmitz.github.io/Leaflet.AutoLayers/example/wms.html).
+New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn them off/on and declare basemaps, automatically pulls layers. [See this demo for an example](https://jmitz.github.io/Leaflet.AutoLayers/example/wms.html).
 
 
 ### Configuration Breakdown
@@ -14,14 +14,14 @@ New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn 
 The configuration is an object that is passed in as the first signature on the method call (L.control.autolayers()). The second is the standard Layers options object which is optional.
 
 List of possible configuration keys:
-* overlays: OPTIONAL - standard built control layers object as built statically [here](http://leafletjs.com/examples/layers-control.html)
-* baseLayers: OPTIONAL - standard built control layers object as built statically [here](http://leafletjs.com/examples/layers-control.html)
+* overlays: OPTIONAL - standard built control layers object as built statically [here](https://leafletjs.com/examples/layers-control.html)
+* baseLayers: OPTIONAL - standard built control layers object as built statically [here](https://leafletjs.com/examples/layers-control.html)
 * selectedBasemap: RECOMMENDED - determines which baselayer gets selected first by layer 'name'
 * selectedOverlays: OPTIONAL - determines which overlays are auto-selected on load
 * mapServers: OPTIONAL - but this is kind of the whole point of this plugin
-  * url: REQUIRED - the base url of the service (e.g. http://services.arcgisonline.com/arcgis/rest/services)
+  * url: REQUIRED - the base url of the service (e.g. https://services.arcgisonline.com/arcgis/rest/services)
   * baseLayers: RECOMMENDED - tells the control what layers to place in base maps, else all from this server go into overlays
-  * dictionary: REQUIRED - where the published service list dictionary is (e.g. http://services.arcgisonline.com/arcgis/rest/services?f=pjson)
+  * dictionary: REQUIRED - where the published service list dictionary is (e.g. https://services.arcgisonline.com/arcgis/rest/services?f=pjson)
   * tileUrl: REQUIRED - (EXCEPT WMS) - the part that comes after the layer name in the tileserver with xyz coords placeholders (e.g. /MapServer/tile/{z}/{y}/{x} or /{z}/{x}/{y}.png)
   * name: REQUIRED - the name of the server, or however you want to identify the source
   * type: REQUIRED - current options: esri or nrltileserver
@@ -51,16 +51,16 @@ Sample Configuration that pulls from the public ArcGIS and Navy Research Labs ti
         selectedBasemap: 'Streets', //selected basemap when it loads
         selectedOverlays: ["ASTER Digital Elevation Model 30M", "ASTER Digital Elevation Model Color 30M", "Cities"], //which overlays should be on by default
         mapServers: [{
-            "url": "http://services.arcgisonline.com/arcgis/rest/services",
-            "dictionary": "http://services.arcgisonline.com/arcgis/rest/services?f=pjson",
+            "url": "https://services.arcgisonline.com/arcgis/rest/services",
+            "dictionary": "https://services.arcgisonline.com/arcgis/rest/services?f=pjson",
             "tileUrl": "/MapServer/tile/{z}/{y}/{x}",
             "name": "ArcGIS Online",
             "type": "esri",
             "baseLayers": ["ESRI_Imagery_World_2D", "ESRI_StreetMap_World_2D", "NGS_Topo_US_2D"],
             "whitelist": ["ESRI_Imagery_World_2D", "ESRI_StreetMap_World_2D", "NGS_Topo_US_2D"]
         }, {
-            "url": "http://geoint.nrlssc.navy.mil/nrltileserver",
-            "dictionary": "http://geoint.nrlssc.navy.mil/nrltileserver/wms?REQUEST=GetCapabilities&VERSION=1.1.1&SERVICE=WMS",
+            "url": "https://geoint.nrlssc.navy.mil/nrltileserver",
+            "dictionary": "https://geoint.nrlssc.navy.mil/nrltileserver/wms?REQUEST=GetCapabilities&VERSION=1.1.1&SERVICE=WMS",
             "tileUrl": "/{z}/{x}/{y}.png",
             "name": "Navy NRL",
             "type": "nrltileserver",

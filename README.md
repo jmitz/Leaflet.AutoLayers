@@ -4,9 +4,9 @@ A dynamic leaflet layers control that pulls from multiple mapservers and manages
 
 ## Getting Started
 
-See [this demo page](http://aebadirad.github.io/Leaflet.AutoLayers/example/index.html) for a full example or [this barebones demonstration](http://aebadirad.github.io/Leaflet.AutoLayers/example/simple.html) of the simpliest way to configure the plugin.
+See [this demo page](http://jmitz.github.io/Leaflet.AutoLayers/example/index.html) for a full example or [this barebones demonstration](http://jmitz.github.io/Leaflet.AutoLayers/example/simple.html) of the simpliest way to configure the plugin.
 
-New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn them off/on and declare basemaps, automatically pulls layers. [See this demo for an example](http://aebadirad.github.io/Leaflet.AutoLayers/example/wms.html).
+New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn them off/on and declare basemaps, automatically pulls layers. [See this demo for an example](http://jmitz.github.io/Leaflet.AutoLayers/example/wms.html).
 
 
 ### Configuration Breakdown

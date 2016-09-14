@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Leaflet.autolayers by aebadirad</title>
+    <title>Leaflet.autolayers by jmitz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -13,9 +13,9 @@
     <section class="page-header">
       <h1 class="project-name">Leaflet.autolayers</h1>
       <h2 class="project-tagline">A dynamic leaflet layers control that pulls from multiple mapservers and manages basemaps and overlays plus order</h2>
-      <a href="https://github.com/aebadirad/Leaflet.AutoLayers" class="btn">View on GitHub</a>
-      <a href="https://github.com/aebadirad/Leaflet.AutoLayers/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/aebadirad/Leaflet.AutoLayers/tarball/master" class="btn">Download .tar.gz</a>
+      <a href="https://github.com/jmitz/Leaflet.AutoLayers" class="btn">View on GitHub</a>
+      <a href="https://github.com/jmitz/Leaflet.AutoLayers/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jmitz/Leaflet.AutoLayers/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
@@ -27,7 +27,9 @@
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<p>See <a href="http://aebadirad.github.io/Leaflet.AutoLayers/example/index.html">this demo page</a> for an example.</p>
+<p>See <a href="https://jmitz.github.io/Leaflet.AutoLayers/example/index.html">this demo page</a> for a full example or <a href="https://jmitz.github.io/Leaflet.AutoLayers/example/simple.html">this barebones demonstration</a> of the simpliest way to configure the plugin.</p>
+
+<p>New! WMS support! Huzzah! Splits the WMS layers up for you so that you can turn them off/on and declare basemaps, automatically pulls layers. <a href="https://jmitz.github.io/Leaflet.AutoLayers/example/wms.html">See this demo for an example</a>.</p>
 
 <h3>
 <a id="configuration-breakdown" class="anchor" href="#configuration-breakdown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration Breakdown</h3>
@@ -37,19 +39,19 @@
 <p>List of possible configuration keys:</p>
 
 <ul>
-<li>overlays: OPTIONAL - standard built control layers object as built statically <a href="http://leafletjs.com/examples/layers-control.html">here</a>
+<li>overlays: OPTIONAL - standard built control layers object as built statically <a href="https://leafletjs.com/examples/layers-control.html">here</a>
 </li>
-<li>baseLayers: OPTIONAL - standard built control layers object as built statically <a href="http://leafletjs.com/examples/layers-control.html">here</a>
+<li>baseLayers: OPTIONAL - standard built control layers object as built statically <a href="https://leafletjs.com/examples/layers-control.html">here</a>
 </li>
 <li>selectedBasemap: RECOMMENDED - determines which baselayer gets selected first by layer 'name'</li>
 <li>selectedOverlays: OPTIONAL - determines which overlays are auto-selected on load</li>
 <li>mapServers: OPTIONAL - but this is kind of the whole point of this plugin
 
 <ul>
-<li>url: REQUIRED - the base url of the service (e.g. <a href="http://services.arcgisonline.com/arcgis/rest/services">http://services.arcgisonline.com/arcgis/rest/services</a>)</li>
+<li>url: REQUIRED - the base url of the service (e.g. <a href="https://services.arcgisonline.com/arcgis/rest/services">https://services.arcgisonline.com/arcgis/rest/services</a>)</li>
 <li>baseLayers: RECOMMENDED - tells the control what layers to place in base maps, else all from this server go into overlays</li>
-<li>dictionary: REQUIRED - where the published service list dictionary is (e.g. <a href="http://services.arcgisonline.com/arcgis/rest/services?f=pjson">http://services.arcgisonline.com/arcgis/rest/services?f=pjson</a>)</li>
-<li>tileUrl: REQUIRED - the part that comes after the layer name in the tileserver with xyz coords placeholders (e.g. /MapServer/tile/{z}/{y}/{x} or /{z}/{x}/{y}.png)</li>
+<li>dictionary: REQUIRED - where the published service list dictionary is (e.g. <a href="https://services.arcgisonline.com/arcgis/rest/services?f=pjson">https://services.arcgisonline.com/arcgis/rest/services?f=pjson</a>)</li>
+<li>tileUrl: REQUIRED - (EXCEPT WMS) - the part that comes after the layer name in the tileserver with xyz coords placeholders (e.g. /MapServer/tile/{z}/{y}/{x} or /{z}/{x}/{y}.png)</li>
 <li>name: REQUIRED - the name of the server, or however you want to identify the source</li>
 <li>type: REQUIRED - current options: esri or nrltileserver</li>
 <li>whitelist: OPTIONAL - ONLY display these layers, matches against both baselayers and overlays. Do not use with blacklist.</li>
@@ -87,16 +89,16 @@
         selectedBasemap: 'Streets', //selected basemap when it loads
         selectedOverlays: ["ASTER Digital Elevation Model 30M", "ASTER Digital Elevation Model Color 30M", "Cities"], //which overlays should be on by default
         mapServers: [{
-            "url": "http://services.arcgisonline.com/arcgis/rest/services",
-            "dictionary": "http://services.arcgisonline.com/arcgis/rest/services?f=pjson",
+            "url": "https://services.arcgisonline.com/arcgis/rest/services",
+            "dictionary": "https://services.arcgisonline.com/arcgis/rest/services?f=pjson",
             "tileUrl": "/MapServer/tile/{z}/{y}/{x}",
             "name": "ArcGIS Online",
             "type": "esri",
             "baseLayers": ["ESRI_Imagery_World_2D", "ESRI_StreetMap_World_2D", "NGS_Topo_US_2D"],
             "whitelist": ["ESRI_Imagery_World_2D", "ESRI_StreetMap_World_2D", "NGS_Topo_US_2D"]
         }, {
-            "url": "http://geoint.nrlssc.navy.mil/nrltileserver",
-            "dictionary": "http://geoint.nrlssc.navy.mil/nrltileserver/wms?REQUEST=GetCapabilities&amp;VERSION=1.1.1&amp;SERVICE=WMS",
+            "url": "https://geoint.nrlssc.navy.mil/nrltileserver",
+            "dictionary": "https://geoint.nrlssc.navy.mil/nrltileserver/wms?REQUEST=GetCapabilities&amp;VERSION=1.1.1&amp;SERVICE=WMS",
             "tileUrl": "/{z}/{x}/{y}.png",
             "name": "Navy NRL",
             "type": "nrltileserver",
@@ -111,15 +113,6 @@
 <a id="deployment" class="anchor" href="#deployment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deployment</h2>
 
 <p>Make sure all your layers you include are of the same projection. Currently map projection redrawing based on baselayer is not implemented, so if you don't have matching layer projections, things will not line up properly.</p>
-
-<p>Note: because of the nature of not all browsers supporting ES6 and not always having jQuery, the default calls provided are SYNCHRONOUS and therefore will cause delay in loading the map as it waits for each server to respond with its list of layers.</p>
-
-<p>If you have a build environment that supports promises (angular, ember, react or jquery framework), you can do two things:</p>
-
-<ol>
-<li>Replace the builtin ajax function with a deferred/promise supported call.</li>
-<li>Pull out the code that does the calls and simply build the baselayers/overlays object and pass it in with blank mapservers entries in the config. This will have the same effect and you'll still get all the layer management capabilities.</li>
-</ol>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
@@ -156,7 +149,7 @@
 </ul>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/aebadirad/Leaflet.AutoLayers">Leaflet.autolayers</a> is maintained by <a href="https://github.com/aebadirad">aebadirad</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/jmitz/Leaflet.AutoLayers">Leaflet.autolayers</a> is maintained by <a href="https://github.com/jmitz">jmitz</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
